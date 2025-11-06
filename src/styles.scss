@@ -1,0 +1,50 @@
+@use 'bootstrap' as *;
+@use './variables' as v;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+html,
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.brand-name {
+  background: linear-gradient(135deg, v.$primary-color, v.$secondary-color);
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  font-weight: 700;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(135deg, v.$primary-color, v.$secondary-color);
+    border-radius: 2px;
+  }
+}
+// ===== Botón CTA =====
+.btn-cta {
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  background: linear-gradient(135deg, v.$primary-color, v.$secondary-color);
+  border: none;
+  color: white;
+  box-shadow: 0 10px 30px rgba(v.$primary-color, 0.3);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(v.$primary-color, 0.4);
+    // background: linear-gradient(135deg, darken(v.$primary-color, 5%), darken(v.$secondary-color, 5%));
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}

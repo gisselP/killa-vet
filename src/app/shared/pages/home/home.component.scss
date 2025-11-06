@@ -1,0 +1,349 @@
+@use "../../../../variables" as v;
+@use "sass:color";
+
+// ===== home Section =====
+.background-home {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  min-height: 100vh;
+  width: 55%;
+  border-radius: 60% 0 0 40% / 50% 0 0 50%;
+  position: absolute;
+  right: 0;
+  z-index: -1;
+}
+
+.home-section {
+  min-height: 90vh;
+  padding: 100px 0;
+}
+
+// =====  Animación =====
+.home-header {
+  animation: fadeInDown 1s ease-out;
+}
+
+.home-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: v.$text-dark;
+  margin-bottom: 20px;
+}
+
+.home-subtitle {
+  font-size: 1.3rem;
+  color: v.$text-light;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+// ===== Contenedor de imagen con efectos =====
+.image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInLeft 1s ease-out;
+}
+
+.circle-bg {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  background: linear-gradient(
+    135deg,
+    v.$primary-color,
+    color.adjust(v.$primary-color, $lightness: 15%)
+  );
+  border-radius: 50%;
+  z-index: 1;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.dog-image {
+  position: relative;
+  z-index: 2;
+}
+
+// ===== Iconos flotantes decorativos =====
+.floating-icon {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  z-index: 3;
+
+  i {
+    font-size: 1.5rem;
+    color: v.$primary-color;
+  }
+
+  &.icon-1 {
+    top: 10%;
+    right: 10%;
+    animation: float 2s ease-in-out infinite;
+  }
+
+  &.icon-2 {
+    bottom: 20%;
+    left: 5%;
+    animation: float 2.5s ease-in-out infinite 0.5s;
+  }
+
+  &.icon-3 {
+    top: 50%;
+    right: -5%;
+    animation: float 3s ease-in-out infinite 1s;
+  }
+}
+
+.service-card {
+  position: relative;
+  padding: 40px 20px;
+  background: white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  animation: fadeInUp 1s ease-out;
+
+  &:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+
+    &::before {
+      transform: scaleX(1);
+    }
+
+    .card-icon-wrapper {
+      transform: scale(1.2) rotate(360deg);
+      background: linear-gradient(135deg, v.$primary-color, v.$secondary-color);
+
+      .card-icon {
+        color: white;
+      }
+    }
+
+    .card-decoration {
+      transform: scale(1.5);
+      opacity: 0.3;
+    }
+  }
+}
+
+// Colores diferentes por card
+.card-1:hover .card-icon-wrapper {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+}
+
+.card-2:hover .card-icon-wrapper {
+  background: linear-gradient(135deg, #4ecdc4, #44a08d);
+}
+
+.card-3:hover .card-icon-wrapper {
+  background: linear-gradient(135deg, #a8e6cf, #3dd59b);
+}
+
+.card-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  background: v.$accent-color;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  color: v.$secondary-color;
+  transition: all 0.4s ease;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: v.$text-dark;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.card-description {
+  font-size: 0.9rem;
+  color: v.$text-light;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.card-decoration {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 100px;
+  height: 100px;
+  background: v.$accent-color;
+  border-radius: 50%;
+  opacity: 0.1;
+  transition: all 0.4s ease;
+  z-index: -1;
+}
+
+// ===== Sección de estadísticas =====
+.stats-section {
+  padding: 40px 0;
+  margin-top: 90px;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+.stat-card {
+  padding: 30px 20px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, v.$primary-color, v.$secondary-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+}
+
+.stat-label {
+  font-size: 0.95rem;
+  color: v.$text-light;
+  font-weight: 500;
+}
+
+// ===== Decoraciones de fondo =====
+.background-decoration {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+.decoration-1 {
+  width: 300px;
+  height: 300px;
+  background: v.$primary-color;
+  top: 88%;
+  left: -100px;
+  animation: float 4s ease-in-out infinite;
+}
+
+.decoration-2 {
+  width: 200px;
+  height: 200px;
+  background: v.$secondary-color;
+  bottom: 2%;
+  right: 50px;
+  animation: float 5s ease-in-out infinite 1s;
+}
+
+.decoration-3 {
+  width: 150px;
+  height: 150px;
+  background: v.$primary-color;
+  top: 30%;
+  right: 30%;
+  animation: float 3.5s ease-in-out infinite 0.5s;
+}
+
+// ===== Animaciones =====
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+@media (max-width: 991px) {
+  .home-title {
+    font-size: 2.5rem;
+  }
+
+  .circle-bg {
+    width: 350px;
+    height: 350px;
+  }
+
+  .image-container {
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-title {
+    font-size: 2rem;
+  }
+
+  .home-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .service-card {
+    margin-bottom: 20px;
+  }
+}

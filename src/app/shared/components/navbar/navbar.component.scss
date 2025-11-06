@@ -1,0 +1,11 @@
+@use '../../../../variables' as v;
+
+.nav-item  {
+  font-weight: 500;
+  color: v.$text-dark;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  &:hover {
+    color: v.$primary-color;
+  }
+ }
