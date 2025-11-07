@@ -166,6 +166,25 @@
   animation: float 3.5s ease-in-out infinite 0.5s;
 }
 
+.container{
+  position: relative;
+}
+.decoration-4 {
+  width: 150px;
+  height: 150px;
+  background: v.$text-light; 
+  right: 4%;
+  bottom: 1px;
+  animation: float 3.5s ease-in-out infinite 0.5s;
+}
+.decoration-5 {
+  width: 350px;
+  height: 350px;
+  background: #d8b06e;
+  bottom: 2%;
+  left:5%;
+  animation: float 3.5s ease-in-out infinite 0.5s;
+}
 .contact-card {
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   animation: fadeInUp 1s ease-out;
@@ -205,6 +224,21 @@
 }
 
 
+.card-glow-pet {
+  animation: glowPet 4s ease-in-out infinite;
+}
+
+@keyframes glowPet {
+  0% {
+    box-shadow: 0 0 15px rgba(168, 230, 207, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(61, 213, 155, 0.55);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(168, 230, 207, 0.35);
+  }
+}
 
 // ===== Animaciones =====
 @keyframes fadeInDown {
