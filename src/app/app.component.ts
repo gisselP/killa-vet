@@ -9,7 +9,7 @@ import { validarEmail } from './features/client/utils/validations.util';
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'vet-app';
-
+hideLayout = true;
   ngOnInit() {
     this.prueba();
   }

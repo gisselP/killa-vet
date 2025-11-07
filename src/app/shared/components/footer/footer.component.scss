@@ -1,0 +1,6 @@
+@use "../../../../variables" as v;
+
+footer{
+    background: v.$secondary-color;
+    opacity: 0.8;
+}

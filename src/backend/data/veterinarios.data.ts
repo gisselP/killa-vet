@@ -1,4 +1,4 @@
-import { Veterinario } from '../../../src/app/core/models/veterinario.model';
+import { Veterinario } from '../../../src/app/features/client/interfaces/response/veterinario.interface';
 
 export const VETERINARIOS_MOCK: Veterinario[] = [
   {

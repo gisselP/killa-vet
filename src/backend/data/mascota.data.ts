@@ -1,4 +1,4 @@
-import { Mascota } from '../../../src/app/core/models/mascota.model';
+import { Mascota } from '../../../src/app/features/client/interfaces/response/mascota.interface';
 import { DUENOS_MOCK } from './duenos.data';
 
 export const MASCOTAS_MOCK: Mascota[] = [

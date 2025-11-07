@@ -1,4 +1,4 @@
-import { Dueno } from '../../../src/app/core/models/dueno.model';
+import { Dueno } from '../../../src/app/features/client/interfaces/response/dueno.interface';
 
 export const DUENOS_MOCK: Dueno[] = [
   {

@@ -1,4 +1,4 @@
-import { Cita, EstadoCita } from '../../app/core/models/cita.model';
+import { Cita, EstadoCita } from '../../app/features/client/interfaces/response/cita.interface'
 import { VETERINARIOS_MOCK } from './veterinarios.data';
 
 export const CITAS_MOCK: Cita[] = [

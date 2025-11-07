@@ -1,4 +1,4 @@
-import { HistorialAtencion } from '../../../src/app/core/models/historial.model';
+import { HistorialAtencion } from '../../../src/app/features/client/interfaces/response/historial.interface';
 import { VETERINARIOS_MOCK } from './veterinarios.data';
 
 export const HISTORIAL_MOCK: HistorialAtencion[] = [

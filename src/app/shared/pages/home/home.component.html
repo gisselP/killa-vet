@@ -1,8 +1,8 @@
 <div class="background-home"></div>
 <section class="home-section">
   <div class="container">
-    <div class="row align-items-center g-5">
-      <div class="col-lg-5">
+    <div class="container-home row align-items-center g-5">
+      <div class="col-lg-5 order-2 order-lg-1">
         <div class="image-container">
           <div class="circle-bg"></div>
           <img src="assets/killa.png" alt="Killa" class="dog-image" />
@@ -17,13 +17,16 @@
           </div>
         </div>
       </div>
- 
+
       <!-- Cards de servicios (derecha) -->
-      <div class="col-lg-7">
+      <div class="col-lg-7 order-1 order-lg-2">
         <div class="text-center mb-5 home-header">
-          <h1 class="home-title">Bienvenido a <span class="brand-name">Killa Vet</span></h1>
-          <p class="home-subtitle">
-            Tu clínica veterinaria de confianza para el cuidado integral de tus mascotas
+          <h1 class="principal-title display-4">
+            Bienvenido a <span class="brand-name">Killa Vet</span>
+          </h1>
+          <p class="secondary-subtitle">
+            Tu clínica veterinaria de confianza para el cuidado integral de tus
+            mascotas
           </p>
         </div>
         <div class="row g-4">
@@ -34,11 +37,13 @@
                 <i class="bi bi-calendar-heart-fill card-icon"></i>
               </div>
               <h5 class="card-title">Agendar cita</h5>
-              <p class="card-description">Agenda fácil y rápido a un solo clic</p>
+              <p class="card-description">
+                Agenda fácil y rápido a un solo clic
+              </p>
               <div class="card-decoration"></div>
             </div>
           </div>
- 
+
           <!-- Card 2: Productos de Calidad -->
           <div class="col-md-4">
             <div class="service-card card-2" routerLink="/fotos-mascotas">
@@ -50,7 +55,7 @@
               <div class="card-decoration"></div>
             </div>
           </div>
- 
+
           <!-- Card 3: Citas en Línea -->
           <div class="col-md-4">
             <div class="service-card card-3" routerLink="/citas">
@@ -58,23 +63,25 @@
                 <i class="bi bi-heart-pulse-fill card-icon"></i>
               </div>
               <h5 class="card-title">Más servicios</h5>
-              <p class="card-description">Atención integral para tus mascotas</p>
+              <p class="card-description">
+                Atención integral para tus mascotas
+              </p>
               <div class="card-decoration"></div>
             </div>
           </div>
         </div>
- 
+
         <!-- Botón de acción (opcional) -->
-<!--         <div class="text-center mt-5">
+        <!--         <div class="text-center mt-5">
           <button class="btn btn-primary btn-cta" routerLink="/mascotas/registro">
             <i class="bi bi-plus-circle me-2"></i>
             Registrar Nueva Mascota
           </button>
         </div>
- -->      </div>
+ -->
+      </div>
     </div>
- 
-    <!-- Sección de estadísticas (opcional pero da dinamismo) -->
+
     <div class="stats-section">
       <div class="row text-center g-4">
         <div class="col-6 col-md-3">
@@ -104,7 +111,78 @@
       </div>
     </div>
   </div>
- 
+
+  <div id="contacto" class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-7">
+        <div class="card border-0 rounded-4 pet-card contact-card">
+          <div class="card-body p-4">
+            <h1 class="text-center mb-4 text-dark no-after fw-bold text-pet">
+              <i class="bi bi-heart-fill me-2"></i>
+              Contáctanos
+            </h1>
+
+            <div class="row g-4 align-items-center">
+              <div class="col-lg-7">
+                <ul class="list-unstyled mt-3">
+                  <li class="mb-3 d-flex align-items-start">
+                    <i class="bi bi-geo-alt fs-3 text-pet me-3"></i>
+                    <span>
+                      <strong>Dirección:</strong><br />
+                      Calle Los Perritos 456, Lima, Perú
+                    </span>
+                  </li>
+
+                  <li class="mb-3 d-flex align-items-start">
+                    <i class="bi bi-telephone fs-3 text-pet me-3"></i>
+                    <span>
+                      <strong>Teléfono:</strong><br />
+                      (01) 954-321-987
+                    </span>
+                  </li>
+
+                  <li class="mb-3 d-flex align-items-start">
+                    <i class="bi bi-envelope-open-heart fs-3 text-pet me-3"></i>
+                    <span>
+                      <strong>Correo:</strong><br />
+                      contacto&#64;killavet.com
+                    </span>
+                  </li>
+
+                  <li class="mb-3 d-flex align-items-start">
+                    <i class="bi bi-clock fs-3 text-pet me-3"></i>
+                    <span>
+                      <strong>Horario:</strong><br />
+                      Lunes a Domingo — 8:00 a.m. a 10:00 p.m.
+                    </span>
+                  </li>
+
+                  <li class="d-flex align-items-start">
+                    <i class="bi bi-laptop fs-3 text-pet me-3"></i>
+                    <span>
+                      <strong>Sitio Web:</strong><br />
+                      www.killavet.com
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+              <div
+                class="col-lg-5 overflow-hidden"
+              >
+                <img
+                  src="assets/killa-2.png"
+                  class="contact-img"
+                  alt="Logo Veterinaria"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Decoración de fondo -->
   <div class="background-decoration decoration-1"></div>
   <div class="background-decoration decoration-2"></div>

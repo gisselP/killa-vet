@@ -1,12 +1,13 @@
-@use 'bootstrap' as *;
-@use './variables' as v;
+@use "bootstrap" as *;
+@use "./variables" as v;
+@use "sass:color";
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-@import 'bootstrap-icons/font/bootstrap-icons.css';
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import "bootstrap-icons/font/bootstrap-icons.css";
 
 html,
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .brand-name {
@@ -16,17 +17,20 @@ body {
   position: relative;
   font-weight: 700;
   &::after {
-    content: '';
+    content: "";
     position: absolute;
-    bottom: 0px;
+    bottom: 3px;
     left: 0;
     width: 100%;
     height: 4px;
     background: linear-gradient(135deg, v.$primary-color, v.$secondary-color);
     border-radius: 2px;
   }
+  &.no-after::after {
+    content: none !important;
+  }
 }
-// ===== Botón CTA =====
+
 .btn-cta {
   padding: 15px 40px;
   font-size: 1.1rem;
@@ -37,14 +41,158 @@ body {
   color: white;
   box-shadow: 0 10px 30px rgba(v.$primary-color, 0.3);
   transition: all 0.3s ease;
-  
+
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 40px rgba(v.$primary-color, 0.4);
-    // background: linear-gradient(135deg, darken(v.$primary-color, 5%), darken(v.$secondary-color, 5%));
   }
-  
+
   &:active {
     transform: translateY(0);
+  }
+}
+
+.principal-title {
+  font-weight: 800;
+  color: v.$text-dark;
+  margin-bottom: 20px;
+}
+
+.secondary-subtitle {
+  font-size: 1.3rem;
+  color: v.$text-light;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.text-green {
+  color: v.$secondary-color;
+}
+
+.text-greenlight {
+  color: v.$primary-color;
+}
+
+.service-card {
+  position: relative;
+  padding: 40px 20px;
+  background: white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  animation: fadeInUp 1s ease-out;
+
+  &:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+
+    &::before {
+      transform: scaleX(1);
+    }
+
+    .card-icon-wrapper {
+      transform: scale(1.2) rotate(360deg);
+      background: linear-gradient(135deg, v.$primary-color, v.$secondary-color);
+
+      .card-icon {
+        color: white;
+      }
+    }
+
+    .card-decoration {
+      transform: scale(1.5);
+      opacity: 0.3;
+    }
+  }
+}
+
+.image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInLeft 1s ease-out;
+}
+
+.circle-bg {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  background: linear-gradient(
+    135deg,
+    v.$primary-color,
+    color.adjust(v.$primary-color, $lightness: 15%)
+  );
+  border-radius: 50%;
+  z-index: 1;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.floating-icon {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  z-index: 3;
+
+  i {
+    font-size: 1.5rem;
+    color: v.$primary-color;
+  }
+
+  &.icon-1 {
+    top: 10%;
+    right: 10%;
+    animation: float 2s ease-in-out infinite;
+  }
+
+  &.icon-2 {
+    bottom: 20%;
+    left: 5%;
+    animation: float 2.5s ease-in-out infinite 0.5s;
+  }
+
+  &.icon-3 {
+    top: 50%;
+    right: -5%;
+    animation: float 3s ease-in-out infinite 1s;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@media (max-width: 991px) {
+  .circle-bg {
+    width: 350px;
+    height: 350px;
+  }
+
+  .image-container {
+    margin-bottom: 50px;
   }
 }

@@ -1,31 +1,47 @@
-<nav class="navbar navbar-expand-lg custom-navbar" data-bs-theme="white">
-  <div class="container-xxl">
-    <a class="navbar-brand brand-name" href="#">{{mensaje | titlecase}}</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
-      <ul class="navbar-nav">
-                 <li *ngIf="login"  class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-    
-        <li  *ngIf="login"   class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li>
-        <li  *ngIf="!login" class="nav-item">
-          Iniciar Sesión
-          <i class="bi bi-box-arrow-in-right"></i>
-        </li>
-      </ul>
+<section class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <nav
+        class="navbar navbar-expand-lg custom-navbar  py-2  px-5"
+        data-bs-theme="white"
+      >
+        <div class="container-xxl">
+          <a class="navbar-brand brand-name fw-bold mb-2 fs-5" href="#">
+            {{ mensaje | titlecase }}
+          </a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
+            <ul class="navbar-nav align-items-center gap-2">
+              <li *ngIf="login" class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/agendar-cita">Agendar Cita</a>
+              </li>
+
+              <li *ngIf="login" class="nav-item">
+                <a class="nav-link"  href="#contacto" aria-disabled="true">Contacto</a>
+              </li>
+
+              <li *ngIf="login" class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-1" href="/login">
+                  <span>Iniciar Sesión</span>
+                  <i class="bi bi-box-arrow-in-right"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </div>
   </div>
-</nav>
+</section>
