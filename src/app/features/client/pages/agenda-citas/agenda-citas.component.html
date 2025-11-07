@@ -18,16 +18,11 @@
           <form [formGroup]="citaForm" (ngSubmit)="agendarCita()">
             <div class="mb-3">
               <label class="form-label">🐾 Mascota</label>
-              <select
-                class="form-select"
-                formControlName="mascotaId"
-                (change)="onMascotaChange($event)"
-              >
-                <option value="">Selecciona una mascota</option>
-                <option *ngFor="let mascota of mascotas" [value]="mascota.id">
-                  {{ mascota.nombre }} - {{ mascota.especie }}
-                </option>
-              </select>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="nombre"
+                />
             </div>
 
             <div class="row mb-3">
@@ -99,7 +94,8 @@
               </button>
               <button
                 type="submit"
-                class="btn btn-primary"
+                class="btn btn-success"
+                 data-bs-toggle="modal" data-bs-target="#openModale"
                 [disabled]="citaForm.invalid"
               >
                 Agendar Cita
@@ -110,31 +106,6 @@
       </section>
 
       <section class="col-lg-5">
-        <div class="service-card p-4 mb-3" *ngIf="mascotaSeleccionada">
-          <h5 class="mb-3">📋 Resumen</h5>
-          <div class="mb-2">
-            <strong>Mascota:</strong>
-            <p class="mb-0">
-              {{ mascotaSeleccionada?.nombre }} ({{
-                mascotaSeleccionada?.especie
-              }})
-            </p>
-          </div>
-          <div class="mb-2" *ngIf="citaForm.get('fecha')?.value">
-            <strong>Fecha:</strong>
-            <p class="mb-0">
-              {{ citaForm.get("fecha")?.value | date : "dd/MM/yyyy" }}
-            </p>
-          </div>
-          <div class="mb-2" *ngIf="citaForm.get('hora')?.value">
-            <strong>Hora:</strong>
-            <p class="mb-0">{{ citaForm.get("hora")?.value }}</p>
-          </div>
-          <div class="mb-0" *ngIf="citaForm.get('motivo')?.value">
-            <strong>Motivo:</strong>
-            <p class="mb-0">{{ citaForm.get("motivo")?.value }}</p>
-          </div>
-        </div>
 
         <div class="service-card p-4 mb-3">
           <h5 class="mb-3 fw-bold text-green" >ℹ️ Importante</h5>
@@ -173,8 +144,49 @@
         </div>
       </section>
     </div>
+  </div> 
+ <div class="modal fade" id="openModale" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog   modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Cita agendada</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+            
+        <div class="service-card p-4 mb-3" >
+          <h5 class="mb-3">📋 Resumen</h5>
+          <div class="mb-2">
+            <strong>Mascota:</strong>
+            <p class="mb-0">
+              {{ mascotaSeleccionada?.nombre }} ({{
+                mascotaSeleccionada?.especie
+              }})
+            </p>
+          </div>
+          <div class="mb-2" *ngIf="citaForm.get('fecha')?.value">
+            <strong>Fecha:</strong>
+            <p class="mb-0">
+              {{ citaForm.get("fecha")?.value | date : "dd/MM/yyyy" }}
+            </p>
+          </div>
+          <div class="mb-2" *ngIf="citaForm.get('hora')?.value">
+            <strong>Hora:</strong>
+            <p class="mb-0">{{ citaForm.get("hora")?.value }}</p>
+          </div>
+          <div class="mb-0" *ngIf="citaForm.get('motivo')?.value">
+            <strong>Motivo:</strong>
+            <p class="mb-0">{{ citaForm.get("motivo")?.value }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Save changes</button>
+      </div>
+    </div>
   </div>
-
+</div>
   <div class="background-decoration decoration-1"></div>
   <div class="background-decoration decoration-2"></div>
   <div class="background-decoration decoration-3"></div>

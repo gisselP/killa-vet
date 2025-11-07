@@ -1,7 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './shared/pages/home/home.component';
 import { AgendaCitasComponent } from './features/client/pages/agenda-citas/agenda-citas.component';
-import { HistorialMascotaComponent } from './features/client/pages/historial-mascota/historial-mascota.component';
 import { NgModule } from '@angular/core';
 import { LoginComponent } from './shared/pages/login/login.component';
 
@@ -26,11 +25,7 @@ export const routes: Routes = [
   { 
     path: 'mascotas/registro', 
     component: RegistroMascotaComponent 
-  }, */
-  { 
-    path: 'mascotas/:id',
-    component: HistorialMascotaComponent 
-  },
+  }, */ 
   { 
     path: '**', 
     redirectTo: '' 
