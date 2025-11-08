@@ -8,6 +8,7 @@ import {
 import { Mascota } from '../../interfaces/response/mascota.interface';
 import { Veterinario } from '../../interfaces/response/veterinario.interface';
 import { VeterinariosService } from '../../../../core/services/veterinarios.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-agenda-citas',
@@ -21,9 +22,11 @@ export class AgendaCitasComponent implements OnInit {
   veterinarios: Veterinario[] = [];
   mascotaSeleccionada?: Mascota;
   fechaMinima: string | undefined;
-  citaSuccessfull: boolean = false;
 
-  constructor(private veterinariosService: VeterinariosService) {
+  constructor(
+    private veterinariosService: VeterinariosService,
+    private router: Router
+  ) {
     this.citaForm = new FormGroup({
       nombre: new FormControl(null, Validators.required),
       fecha: new FormControl(null, Validators.required),
@@ -54,9 +57,16 @@ export class AgendaCitasComponent implements OnInit {
   }
 
   saveChanges(): void {
-    const cita = this.citaForm.value;
-    localStorage.setItem('cita', JSON.stringify(cita));
-    this.citaSuccessfull = true;
-    console.log(this.citaForm.value);
+    const cita = {
+      ...this.citaForm.value,
+      estado: 'PENDIENTE', // agregamos el estado por defecto
+    };
+
+    const citasGuardadas = JSON.parse(localStorage.getItem('cita') || '[]');
+    citasGuardadas.push(cita);
+    localStorage.setItem('cita', JSON.stringify(citasGuardadas));
+
+    this.citaForm.reset();
+    this.router.navigate(['/']);
   }
 }

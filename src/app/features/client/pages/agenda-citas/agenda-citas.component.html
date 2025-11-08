@@ -8,7 +8,6 @@
       </p>
     </div>
 
-    @if(!citaSuccessfull){
     <div class="row my-5">
       <section class="col-lg-7 mb-4">
         <div class="service-card p-4">
@@ -148,23 +147,7 @@
         </div>
       </section>
     </div>
-    } @if(citaSuccessfull){
-    <div class="row my-5">
-      <div class="service-card p-4 mb-3">
-        <h5 class="mb-3 fw-bold text-green">ℹ️ Cita creada con éxito</h5>
-        <ul class="list-unstyled">
-          <li class="mb-2">
-            <i class="bi bi-patch-check-fill"></i> Fecha :
-            {{ citaForm.value.fecha | date : "dd/MM/yyyy" }}
-          </li>
-          <li class="mb-2">
-            <i class="bi bi-patch-check-fill"></i> Hora:
-            {{ citaForm.value.hora }}
-          </li>
-        </ul>
-      </div>
-    </div>
-    }
+    
   </div>
   <div
     class="modal fade"
@@ -218,7 +201,7 @@
             data-bs-dismiss="modal"
             (click)="saveChanges()"
           >
-            Save changes
+            Guardar Cambios
           </button>
         </div>
       </div>

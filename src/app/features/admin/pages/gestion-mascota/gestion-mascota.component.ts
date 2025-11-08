@@ -36,6 +36,10 @@ export class GestionMascotaComponent {
   }
 
   ngOnInit(): void {
+    this.obtenerMascotas();
+  }
+
+  obtenerMascotas(): void {
     this.mascotasService.obtenerTodasMascotas().subscribe({
       next: (data) => {
         this.mascotas = data;

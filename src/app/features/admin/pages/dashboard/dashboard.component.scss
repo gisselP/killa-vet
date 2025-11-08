@@ -1,26 +1,43 @@
-.glass-card {
-  background: rgba(255, 255, 255, 0.385);     // transparencia suave
-  backdrop-filter: blur(15px) saturate(180%); // efecto glass
-  -webkit-backdrop-filter: blur(15px) saturate(180%);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-  padding: 25px;
-  transition: all 0.3s ease;
+ @use "../../../../../variables" as v; 
 
-  // Hover opcional
-  &:hover {
-    background: rgba(255, 255, 255, 0.25);
-    transform: translateY(-5px);
-    box-shadow: 0 12px 45px rgba(0, 0, 0, 0.25);
-  }
+.stat-icon {
+  height: 60px;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+}
+.background-decoration {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.2;
+  z-index: 0;
 }
 
-.stat-icon{
-    height: 60px;
-    width: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-border-radius: 100%;
+.decoration-1 {
+  width: 300px;
+  height: 300px;
+  background: v.$primary-color;
+  top: 30%;
+  left: -100px;
+  animation: float 4s ease-in-out infinite;
+}
+
+.decoration-2 {
+  width: 200px;
+  height: 200px;
+  background: v.$secondary-color;
+  bottom: 10%;
+  right: 30%;
+  animation: float 5s ease-in-out infinite 1s;
+}
+
+.decoration-3 {
+  width: 150px;
+  height: 150px;
+  background: v.$beige-dark;
+  top: 10%;
+  right: 10%;
+  animation: float 3.5s ease-in-out infinite 0.5s;
 }

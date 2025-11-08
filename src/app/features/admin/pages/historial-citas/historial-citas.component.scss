@@ -1,0 +1,9 @@
+ @use "../../../../../variables" as v; 
+ 
+ .green{
+background: linear-gradient(135deg, #a8e6cf, #3dd59b);
+    box-shadow: 0 10px 30px rgba(61, 213, 155, 0.5);
+} 
+.green div > p{
+    color: v.$text-dark;
+}

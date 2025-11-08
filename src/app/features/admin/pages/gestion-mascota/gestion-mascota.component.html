@@ -64,7 +64,7 @@
                   </thead>
                   <tbody>
                     @for(mascota of filtradas; track $index){
-                    <tr (click)="seleccionarMascota(mascota)">
+                    <tr>
                       <td>{{ mascota.id }}</td>
                       <td>{{ mascota.nombre }}</td>
                       <td>{{ mascota.especie }}</td>
@@ -72,6 +72,12 @@
                       <td>{{ mascota.edad }} años</td>
                       <td>{{ mascota.sexo }}</td>
                       <td>
+                        <button
+                          class="btn btn-sm btn-primary btn-action me-2"
+                          (click)="seleccionarMascota(mascota)"
+                        >
+                          <i class="bi bi-eye"></i>
+                        </button>
                         <button
                           class="btn btn-sm btn-danger btn-action"
                           (click)="eliminarMascota(mascota.id)"
@@ -112,7 +118,7 @@
             </div>
           </div>
           } @else {
-          <div class="service-card no-lift mb-5">
+          <div class="service-card no-lift">
             <h6 class="fw-bold text-green mb-2">Información General</h6>
             <ul class="list-unstyled info-list mb-4">
               <li>
