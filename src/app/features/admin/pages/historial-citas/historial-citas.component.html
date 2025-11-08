@@ -1,284 +1,210 @@
+<div class="background-gradient"></div>
+
 <div id="historial" class="view-content">
-  <div class="page-header">
-    <h2 class="mb-0">Historial Clínico</h2>
-    <p class="text-muted mb-0">
-      Consulta el historial médico completo de las mascotas
-    </p>
-  </div>
-
-  <div class="row">
-    <!-- Selector de Mascota -->
-    <div class="col-md-4">
-      <div class="card table-card mb-3">
-        <div class="card-header bg-white py-3">
-          <h6 class="mb-0"><i class="bi bi-search me-2"></i>Buscar Mascota</h6>
+  <div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex flex-column">
+        <h1 class="principal-title">Historial Clínico</h1>
+        <p class="secondary-subtitle fs-6">
+          Consulta el historial médico completo de las mascotas 🐶😺🦜
+        </p>
+      </div>
+      <button
+        class="btn btn-primary btn-cta"
+        data-bs-toggle="modal"
+        data-bs-target="#modalRegistrarMascota"
+      >
+        <i class="bi bi-plus-circle me-2"></i>
+        Nuevo Registro
+      </button>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-3">
+        <div class="glass-card no-lift mb-3">
+          <div class="card-body">
+            <div class="input-group">
+              <span class="input-group-text bg-white border-end-0">🔍</span>
+              <input
+                type="text"
+                class="form-control border-start-0"
+                placeholder="Buscar Mascota"
+              />
+            </div>
+          </div>
         </div>
-        <div class="card-body">
-          <input
-            type="text"
-            class="form-control search-box mb-3"
-            placeholder="Nombre de mascota o dueño..."
-          />
 
-          <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action active">
+        <!-- Lista de mascotas -->
+        <div class="glass-card mb-3">
+          <div class="card-header  ">
+            <small class="text-muted">Selecciona una mascota</small>
+          </div>
+          <div class="list-group list-group-flush">
+            <!-- Mascota 1 - ACTIVA -->
+            <button class="list-group-item list-group-item-action">
               <div class="d-flex align-items-center">
-                <img
-                  src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=100"
-                  class="pet-avatar me-3"
-                  alt="Max"
-                />
                 <div>
                   <h6 class="mb-0">Max</h6>
                   <small>Golden Retriever - Juan Pérez</small>
                 </div>
               </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">
-              <div class="d-flex align-items-center">
-                <img
-                  src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=100"
-                  class="pet-avatar me-3"
-                  alt="Luna"
-                />
-                <div>
-                  <h6 class="mb-0">Luna</h6>
-                  <small>Persa - María García</small>
-                </div>
-              </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">
-              <div class="d-flex align-items-center">
-                <img
-                  src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=100"
-                  class="pet-avatar me-3"
-                  alt="Rocky"
-                />
-                <div>
-                  <h6 class="mb-0">Rocky</h6>
-                  <small>Bulldog - Carlos Rodríguez</small>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Info de Mascota -->
-      <div class="card table-card">
-        <div class="card-body">
-          <div class="text-center mb-3">
-            <img
-              src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=200"
-              class="rounded-circle"
-              width="100"
-              height="100"
-              alt="Max"
-            />
-            <h5 class="mt-2 mb-0">Max</h5>
-            <p class="text-muted">Golden Retriever</p>
-          </div>
-          <hr />
-          <div class="mb-2">
-            <small class="text-muted">Edad</small>
-            <p class="mb-0"><strong>3 años</strong></p>
-          </div>
-          <div class="mb-2">
-            <small class="text-muted">Peso</small>
-            <p class="mb-0"><strong>28 kg</strong></p>
-          </div>
-          <div class="mb-2">
-            <small class="text-muted">Dueño</small>
-            <p class="mb-0"><strong>Juan Pérez</strong></p>
-          </div>
-          <div class="mb-2">
-            <small class="text-muted">Teléfono</small>
-            <p class="mb-0"><strong>+51 987 654 321</strong></p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Timeline de Historial -->
-    <div class="col-md-8">
-      <div class="card table-card">
-        <div class="card-header bg-white py-3">
-          <div class="d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">
-              <i class="bi bi-clock-history me-2"></i>Historial Médico de Max
-            </h5>
-            <button class="btn btn-primary btn-sm">
-              <i class="bi bi-plus-circle me-1"></i>Nuevo Registro
             </button>
           </div>
         </div>
-        <div class="card-body" style="max-height: 700px; overflow-y: auto">
-          <!-- Entrada de Timeline -->
-          <div class="timeline-item">
-            <div class="timeline-dot" style="border-color: #10b981"></div>
-            <div class="card mb-3">
-              <div class="card-body">
-                <div
-                  class="d-flex justify-content-between align-items-start mb-2"
-                >
-                  <div>
-                    <h6 class="mb-1">Vacunación Antirrábica</h6>
-                    <small class="text-muted">
-                      <i class="bi bi-calendar me-1"></i>15 Oct 2025, 10:30 AM
-                      <span class="mx-2">|</span>
-                      <i class="bi bi-person me-1"></i>Dr. Veterinario
-                    </small>
-                  </div>
-                  <span class="badge bg-success">Vacuna</span>
-                </div>
-                <p class="mb-2">
-                  <strong>Vacuna:</strong> Antirrábica - Dosis anual
-                </p>
-                <p class="mb-2"><strong>Lote:</strong> VAC-2025-1234</p>
-                <p class="mb-0"><strong>Próxima dosis:</strong> 15 Oct 2026</p>
-              </div>
+
+        <!-- Info de mascota seleccionada -->
+        <div class="card shadow-sm">
+          <div class="card-body text-center">
+            <h5 class="mb-1">Max</h5>
+            <p class="text-muted mb-3">Golden Retriever</p>
+
+            <div class="text-start">
+              <p class="mb-1"><strong>Edad:</strong> 3 años</p>
+              <p class="mb-1"><strong>Peso:</strong> 28 kg</p>
+              <p class="mb-1"><strong>Dueño:</strong> Juan Pérez</p>
+              <p class="mb-0"><strong>Teléfono:</strong> +51 987 654 321</p>
             </div>
           </div>
+        </div>
+      </div>
 
-          <div class="timeline-item">
-            <div class="timeline-dot" style="border-color: #f59e0b"></div>
-            <div class="card mb-3">
+      <!-- CONTENIDO PRINCIPAL - Historial -->
+      <div class="col-md-9">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <div class="card mb-3 border-primary">
               <div class="card-body">
                 <div
-                  class="d-flex justify-content-between align-items-start mb-2"
+                  class="d-flex justify-content-between align-items-start mb-3"
                 >
                   <div>
-                    <h6 class="mb-1">Cirugía Menor</h6>
+                    <h6 class="mb-1">
+                      🩺 Extracción de quiste benigno en pata delantera
+                    </h6>
                     <small class="text-muted">
-                      <i class="bi bi-calendar me-1"></i>20 Sep 2025, 02:00 PM
-                      <span class="mx-2">|</span>
-                      <i class="bi bi-person me-1"></i>Dr. Veterinario
+                      📅 20 Sep 2025, 02:00 PM | 👨‍⚕️ Dra. María García
                     </small>
                   </div>
-                  <span class="badge bg-warning">Cirugía</span>
+                  <span class="badge bg-primary">Nuevo Registro</span>
                 </div>
-                <p class="mb-2">
-                  <strong>Procedimiento:</strong> Extracción de quiste benigno
-                  en pata delantera
-                </p>
-                <p class="mb-2"><strong>Anestesia:</strong> General</p>
-                <p class="mb-2">
-                  <strong>Evolución:</strong> Recuperación exitosa. Retiro de
-                  puntos programado para el 04 Oct 2025.
-                </p>
-                <p class="mb-0">
-                  <strong>Medicación:</strong> Antibiótico (Amoxicilina) 500mg
-                  cada 12h por 7 días
-                </p>
-              </div>
-            </div>
-          </div>
 
-          <div class="timeline-item">
-            <div class="timeline-dot" style="border-color: #3b82f6"></div>
-            <div class="card mb-3">
-              <div class="card-body">
-                <div
-                  class="d-flex justify-content-between align-items-start mb-2"
-                >
-                  <div>
-                    <h6 class="mb-1">Análisis de Laboratorio</h6>
-                    <small class="text-muted">
-                      <i class="bi bi-calendar me-1"></i>05 Sep 2025, 11:00 AM
-                      <span class="mx-2">|</span>
-                      <i class="bi bi-person me-1"></i>Dr. Veterinario
-                    </small>
+                <!-- Detalles -->
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <h6 class="text-primary">📋 Tratamiento</h6>
+                    <p class="mb-0">Cirugía menor, limpieza y sutura</p>
                   </div>
-                  <span class="badge bg-info">Laboratorio</span>
-                </div>
-                <p class="mb-2"><strong>Tipo:</strong> Hemograma completo</p>
-                <p class="mb-2">
-                  <strong>Resultados:</strong> Valores dentro del rango normal
-                </p>
-                <div class="table-responsive">
-                  <table class="table table-sm table-bordered mt-2">
-                    <tr>
-                      <td><strong>Glóbulos Rojos:</strong></td>
-                      <td>6.5 M/µL</td>
-                      <td class="text-success">Normal</td>
-                    </tr>
-                    <tr>
-                      <td><strong>Glóbulos Blancos:</strong></td>
-                      <td>8.2 K/µL</td>
-                      <td class="text-success">Normal</td>
-                    </tr>
-                    <tr>
-                      <td><strong>Plaquetas:</strong></td>
-                      <td>250 K/µL</td>
-                      <td class="text-success">Normal</td>
-                    </tr>
-                  </table>
+                  <div class="col-md-6 mb-3">
+                    <h6 class="text-primary">💊 Medicamentos</h6>
+                    <ul class="mb-0">
+                      <li>
+                        Antibiótico (Amoxicilina) 500mg cada 12h por 7 días
+                      </li>
+                      <li>Analgésico según dolor</li>
+                    </ul>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <h6 class="text-primary">⚖️ Peso</h6>
+                    <p class="mb-0">28.5 kg</p>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <h6 class="text-primary">🌡️ Temperatura</h6>
+                    <p class="mb-0">38.2°C</p>
+                  </div>
+                  <div class="col-12 mb-3">
+                    <h6 class="text-primary">📝 Observaciones</h6>
+                    <p class="mb-0">
+                      Recuperación exitosa. Retiro de puntos programado para el
+                      04 Oct 2025.
+                    </p>
+                  </div> 
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="timeline-item">
-            <div class="timeline-dot" style="border-color: #ef4444"></div>
+            <!-- REGISTRO 2 - Vacunación -->
             <div class="card mb-3">
               <div class="card-body">
                 <div
-                  class="d-flex justify-content-between align-items-start mb-2"
+                  class="d-flex justify-content-between align-items-start mb-3"
                 >
                   <div>
-                    <h6 class="mb-1">Emergencia</h6>
+                    <h6 class="mb-1">💉 Control de vacunación anual</h6>
                     <small class="text-muted">
-                      <i class="bi bi-calendar me-1"></i>20 Ago 2025, 08:15 PM
-                      <span class="mx-2">|</span>
-                      <i class="bi bi-person me-1"></i>Dr. Veterinario
+                      📅 15 Ago 2025, 11:00 AM | 👨‍⚕️ Dr. Carlos Rodríguez
+                    </small>
+                  </div>
+                  <span class="badge bg-success">Completado</span>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <h6 class="text-primary">📋 Tratamiento</h6>
+                    <p class="mb-0">
+                      Aplicación de vacuna antirrábica y séxtuple
+                    </p>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <h6 class="text-primary">⚖️ Peso</h6>
+                    <p class="mb-0">28 kg</p>
+                  </div>
+                  <div class="col-12">
+                    <h6 class="text-primary">📝 Observaciones</h6>
+                    <p class="mb-0">
+                      Mascota en buen estado general. Próxima vacunación en 1
+                      año.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- REGISTRO 3 - Emergencia -->
+            <div class="card mb-3 border-danger">
+              <div class="card-body">
+                <div
+                  class="d-flex justify-content-between align-items-start mb-3"
+                >
+                  <div>
+                    <h6 class="mb-1">
+                      🚨 Ingesta de alimento tóxico (chocolate)
+                    </h6>
+                    <small class="text-muted">
+                      📅 20 Ago 2025, 08:15 PM | 👩‍⚕️ Dra. Ana López
                     </small>
                   </div>
                   <span class="badge bg-danger">Emergencia</span>
                 </div>
-                <p class="mb-2">
-                  <strong>Motivo:</strong> Ingesta de alimento tóxico
-                  (chocolate)
-                </p>
-                <p class="mb-2">
-                  <strong>Síntomas:</strong> Vómitos, temblores, hiperactividad
-                </p>
-                <p class="mb-2">
-                  <strong>Tratamiento:</strong> Carbón activado, fluidos IV,
-                  observación 24h
-                </p>
-                <p class="mb-0">
-                  <strong>Evolución:</strong> Recuperación completa. Alta al día
-                  siguiente.
-                </p>
-              </div>
-            </div>
-          </div>
 
-          <div class="timeline-item">
-            <div class="timeline-dot" style="border-color: #10b981"></div>
-            <div class="card mb-3">
-              <div class="card-body">
-                <div
-                  class="d-flex justify-content-between align-items-start mb-2"
-                >
-                  <div>
-                    <h6 class="mb-1">Desparasitación</h6>
-                    <small class="text-muted">
-                      <i class="bi bi-calendar me-1"></i>01 Ago 2025, 09:30 AM
-                      <span class="mx-2">|</span>
-                      <i class="bi bi-person me-1"></i>Dr. Veterinario
-                    </small>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <h6 class="text-primary">📋 Tratamiento</h6>
+                    <p class="mb-0">
+                      Carbón activado, fluidos IV, observación 24h
+                    </p>
                   </div>
-                  <span class="badge bg-success">Prevención</span>
+                  <div class="col-md-6 mb-3">
+                    <h6 class="text-primary">💊 Medicamentos</h6>
+                    <ul class="mb-0">
+                      <li>Suero fisiológico IV</li>
+                      <li>Protector gástrico</li>
+                    </ul>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <h6 class="text-primary">⚖️ Peso</h6>
+                    <p class="mb-0">27.8 kg</p>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <h6 class="text-primary">🌡️ Temperatura</h6>
+                    <p class="mb-0">39.1°C</p>
+                  </div>
+                  <div class="col-12">
+                    <h6 class="text-primary">📝 Observaciones</h6>
+                    <p class="mb-0">
+                      Recuperación completa. Alta al día siguiente. Educar al
+                      dueño sobre alimentos prohibidos.
+                    </p>
+                  </div>
                 </div>
-                <p class="mb-2">
-                  <strong>Medicamento:</strong> Antiparasitario interno
-                  (Drontal)
-                </p>
-                <p class="mb-2"><strong>Dosis:</strong> 1 tableta según peso</p>
-                <p class="mb-0">
-                  <strong>Próxima desparasitación:</strong> 01 Nov 2025
-                </p>
               </div>
             </div>
           </div>
