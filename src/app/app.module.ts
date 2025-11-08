@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app.routes';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ClientModule } from './features/client/client.module';
 import { AdminModule } from './features/admin/admin.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +18,8 @@ import { AdminModule } from './features/admin/admin.module';
     ReactiveFormsModule,
     SharedModule,
     ClientModule,
-    AdminModule
+    AdminModule,
+    HttpClientModule 
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

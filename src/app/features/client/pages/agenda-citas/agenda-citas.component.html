@@ -12,7 +12,7 @@
       <section class="col-lg-7 mb-4">
         <div class="service-card p-4">
           <h4 class="mb-4 text-green fw-bold">
-           <i class="bi bi-clipboard2-check"></i> Información de la Cita
+            <i class="bi bi-clipboard2-check"></i> Información de la Cita
           </h4>
 
           <form [formGroup]="citaForm" (ngSubmit)="agendarCita()">
@@ -54,10 +54,12 @@
               <label class="form-label">👨‍⚕️ Veterinario</label>
               <select class="form-select" formControlName="veterinarioId">
                 <option value="">Selecciona un veterinario</option>
-                <option *ngFor="let vet of veterinarios" [value]="vet.id">
+                @for(vet of veterinarios; track vet.id){
+                  <option [value]="vet.id">
                   Dr. {{ vet.nombre }} {{ vet.apellido }} -
                   {{ vet.especialidad }}
                 </option>
+                }
               </select>
             </div>
 
@@ -96,7 +98,7 @@
                 type="submit"
                 class="btn btn-success"
                  data-bs-toggle="modal" data-bs-target="#openModale"
-                [disabled]="citaForm.invalid"
+                [disabled]="!citaForm.invalid"
               >
                 Agendar Cita
               </button>
@@ -108,7 +110,7 @@
       <section class="col-lg-5">
 
         <div class="service-card p-4 mb-3">
-          <h5 class="mb-3 fw-bold text-green" >ℹ️ Importante</h5>
+          <h5 class="mb-3 fw-bold text-green">ℹ️ Importante</h5>
           <ul class="list-unstyled">
             <li class="mb-2">
               <i class="bi bi-patch-check-fill"></i> Llega 10 min antes
@@ -128,7 +130,7 @@
 
         <!-- Card Horarios -->
         <div class="service-card p-4">
-          <h5 class="mb-3 fw-bold text-green"  >🕐 Horarios</h5>
+          <h5 class="mb-3 fw-bold text-green">🕐 Horarios</h5>
           <div class="d-flex justify-content-between mb-2">
             <span>Lunes - Viernes</span>
             <strong>9am - 6pm</strong>
@@ -146,7 +148,7 @@
     </div>
   </div> 
  <div class="modal fade" id="openModale" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog   modal-dialog-centered">
+  <div class=" modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Cita agendada</h1>
@@ -154,29 +156,25 @@
       </div>
       <div class="modal-body">
             
-        <div class="service-card p-4 mb-3" >
+        <div class=" p-4 mb-3" >
           <h5 class="mb-3">📋 Resumen</h5>
           <div class="mb-2">
             <strong>Mascota:</strong>
-            <p class="mb-0">
-              {{ mascotaSeleccionada?.nombre }} ({{
-                mascotaSeleccionada?.especie
-              }})
+            <p class="mb-0"> 
             </p>
           </div>
-          <div class="mb-2" *ngIf="citaForm.get('fecha')?.value">
+          <div class="mb-2">
             <strong>Fecha:</strong>
             <p class="mb-0">
-              {{ citaForm.get("fecha")?.value | date : "dd/MM/yyyy" }}
-            </p>
+             </p>
           </div>
-          <div class="mb-2" *ngIf="citaForm.get('hora')?.value">
+          <div class="mb-2" >
             <strong>Hora:</strong>
-            <p class="mb-0">{{ citaForm.get("hora")?.value }}</p>
+            <p class="mb-0"> </p>
           </div>
-          <div class="mb-0" *ngIf="citaForm.get('motivo')?.value">
+          <div class="mb-0">
             <strong>Motivo:</strong>
-            <p class="mb-0">{{ citaForm.get("motivo")?.value }}</p>
+            <p class="mb-0"> </p>
           </div>
         </div>
       </div>
