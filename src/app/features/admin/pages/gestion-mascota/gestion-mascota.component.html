@@ -8,11 +8,7 @@
           Administra toda la información de las mascotas 🐶😺🦜
         </p>
       </div>
-      <button
-        class="btn btn-primary btn-cta"
-        data-bs-toggle="modal"
-        data-bs-target="#modalRegistrarMascota"
-      >
+      <button class="btn btn-primary btn-cta" data-bs-toggle="modal" data-bs-target="#modalRegistrarMascota">
         <i class="bi bi-plus-circle me-2"></i>
         Registrar Nueva Mascota
       </button>
@@ -26,12 +22,8 @@
           <div class="card-header bg-white">
             <div class="d-flex pb-2 justify-content-between align-items-center">
               <div class="d-flex gap-2">
-                <input
-                  type="text"
-                  class="form-control search-box"
-                  placeholder="Buscar mascota..."
-                />
-                <select class="form-select" style="width: 150px">
+                <input type="text" class="form-control search-box" placeholder="Buscar mascota por nombre" (input)="onBuscar($event)"/>
+                <select class="form-select" style="width: 150px" (change)="onChange($event)">
                   <option>Todos</option>
                   <option>Perros</option>
                   <option>Gatos</option>
@@ -41,10 +33,7 @@
             </div>
           </div>
           <div class="card-body p-0">
-            <div
-              class="table-responsive"
-              style="max-height: 600px; overflow-y: auto"
-            >
+            <div class="table-responsive" style="max-height: 600px; overflow-y: auto">
               <table class="table table-hover mb-0">
                 <thead class="table-light sticky-top">
                   <tr>
@@ -58,22 +47,28 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Killa Ortiz</td>
-                    <td>Perro</td>
-                    <td>Único</td>
-                    <td>1 año</td>
-                    <td>Hembra</td>
+                  @for(mascota of filtradas; track $index){
+                  <tr (click)="seleccionarMascota(mascota)">
+                    <td>{{ mascota.id }}</td>
+                    <td>{{ mascota.nombre }}</td>
+                    <td>{{ mascota.especie }}</td>
+                    <td>{{ mascota.raza }}</td>
+                    <td>{{ mascota.edad }} años</td>
+                    <td>{{ mascota.sexo }}</td>
                     <td>
-                      <button class="btn btn-sm btn-primary btn-action me-1">
-                        <i class="bi bi-pencil"></i>
-                      </button>
-                      <button class="btn btn-sm btn-danger btn-action">
+                      <button class="btn btn-sm btn-danger btn-action" (click)="eliminarMascota(mascota.id)">
                         <i class="bi bi-trash"></i>
                       </button>
                     </td>
                   </tr>
+                  }
+
+                  @if(mascotas.length === 0){
+                  <tr>
+                    <td colspan="7" class="text-center py-3 text-muted">No hay mascotas registradas</td>
+                  </tr>
+                  }
+
                 </tbody>
               </table>
             </div>
@@ -83,110 +78,97 @@
 
       <!-- Vista Rápida / Formulario -->
       <div class="col-md-5">
-        <div *ngIf="false" class="form-card">
+        @if(!mascotaSeleccionada){
+        <div class="form-card">
           <h5 class="mb-4">
             <i class="bi bi-info-circle me-2"></i>Vista Rápida
           </h5>
           <div class="text-center py-5">
-            <i
-              class="bi bi-arrow-left-circle text-muted"
-              style="font-size: 3rem"
-            ></i>
+            <i class="bi bi-arrow-left-circle text-muted" style="font-size: 3rem"></i>
             <p class="text-muted mt-3">
               Selecciona una mascota para ver sus detalles
             </p>
           </div>
         </div>
+        } @else {
         <div class="service-card no-lift mb-5">
           <h6 class="fw-bold text-green mb-2">Información General</h6>
           <ul class="list-unstyled info-list mb-4">
             <li>
               ⚧️
-              <strong>Género:</strong> No binarie
+              <strong>Sexo:</strong> {{mascotaSeleccionada.sexo}}
             </li>
             <li>
               ❤️
-              <strong>Edad:</strong> 2 años
+              <strong>Edad:</strong> {{mascotaSeleccionada.edad}} años
             </li>
             <li>
               ⚖️
-              <strong>Peso:</strong> 4 kg
+              <strong>Peso:</strong> {{mascotaSeleccionada.peso}} kg
             </li>
             <li>
               🌈
-              <strong>Color de pelaje:</strong> asda
+              <strong>Color de pelaje:</strong> {{mascotaSeleccionada.colorPelaje}}
             </li>
             <li>
               📆
               <strong>Fecha Nacimiento:</strong>
-              asdasd
+              {{mascotaSeleccionada.fechaNacimiento}}
             </li>
             <li>
               ✅
               <strong>Esterilizado:</strong>
-              Sí
+              {{mascotaSeleccionada.esterilizado ? 'Sí' : 'No'}}
             </li>
           </ul>
-
+      
           <!-- Dueño -->
           <h6 class="fw-bold mb-2 text-green">Dueño</h6>
           <div class="history-box mb-4">
-            <p class="mb-1"><strong>Nombre:</strong> asd a sdas</p>
-            <p class="mb-1"><strong>Teléfono:</strong> Lorem, ipsum dolor !</p>
-            <p class="mb-1"><strong>Email:</strong> sit amet consectetur</p>
+            <p class="mb-1"><strong>Nombre:</strong> {{mascotaSeleccionada.dueno.nombre}} {{mascotaSeleccionada.dueno.apellido}}</p>
+            <p class="mb-1"><strong>Teléfono:</strong> {{mascotaSeleccionada.dueno.telefono}}</p>
+            <p class="mb-1"><strong>Email:</strong> {{mascotaSeleccionada.dueno.email}}</p>
             <p class="mb-1">
-              <strong>Dirección:</strong> adipisicing elit. Asperiores
+              <strong>Dirección:</strong> {{mascotaSeleccionada.dueno.direccion}}
             </p>
-            <p class="mb-1"><strong>DNI:</strong> quaerat eaque</p>
+            <p class="mb-1"><strong>DNI:</strong> {{mascotaSeleccionada.dueno.documentoIdentidad}}</p>
           </div>
-
+      
           <section class="d-flex justify-content-end gap-2">
-            <button type="button" class="btn btn-secondary">Cancelar</button>
-            <button type="button" class="btn btn-success">
-              Guardar Cambios
-            </button>
+            <button type="button" class="btn btn-secondary" (click)="cancelarSeleccion()">Cancelar</button>
           </section>
         </div>
+        }
+      
+      
       </div>
     </div>
   </div>
   <!-- MODAL s -->
-  <div
-    class="modal fade"
-    id="modalRegistrarMascota"
-    tabindex="-1"
-    aria-labelledby="modalMascotaLabel"
-    aria-hidden="true"
-  >
+  <div class="modal fade" id="modalRegistrarMascota" tabindex="-1" aria-labelledby="modalMascotaLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content shadow-lg border-0 rounded-4">
         <!-- Header -->
         <div class="modal-header bg-success text-white rounded-top-4">
-          <h5
-            class="modal-title d-flex align-items-center"
-            id="modalMascotaLabel"
-          >
+          <h5 class="modal-title d-flex align-items-center" id="modalMascotaLabel">
             <i class="bi bi-paw me-2"></i> Registrar Nueva Mascota
           </h5>
-          <button
-            type="button"
-            class="btn-close btn-close-white"
-            data-bs-dismiss="modal"
-          ></button>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
         </div>
 
         <!-- Body -->
-        <div class="modal-body p-4">
+        <div class="modal-body p-4" [formGroup]="agregarMascotaForm">
           <!-- Fila 1 -->
           <div class="row mb-3">
             <div class="col-md-6">
               <label class="form-label fw-semibold">Nombre</label>
-              <input type="text" class="form-control" placeholder="Ej: Killa" />
+              <input formControlName="nombre" type="text" class="form-control" placeholder="Ej: Killa" />
             </div>
 
             <div class="col-md-6">
               <label class="form-label fw-semibold">Especie</label>
-              <select class="form-select">
+              <select class="form-select" formControlName="especie">
                 <option disabled selected>Seleccione...</option>
                 <option>Perro</option>
                 <option>Gato</option>
@@ -200,16 +182,12 @@
           <div class="row mb-3">
             <div class="col-md-6">
               <label class="form-label fw-semibold">Raza</label>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Ej: Golden Retriever"
-              />
+              <input formControlName="raza" type="text" class="form-control" placeholder="Ej: Golden Retriever" />
             </div>
 
             <div class="col-md-6">
               <label class="form-label fw-semibold">Sexo</label>
-              <select class="form-select">
+              <select class="form-select" formControlName="sexo">
                 <option disabled selected>Seleccione...</option>
                 <option>Macho</option>
                 <option>Hembra</option>
@@ -221,41 +199,30 @@
           <div class="row mb-3">
             <div class="col-md-4">
               <label class="form-label fw-semibold">Edad</label>
-              <input type="number" class="form-control" placeholder="Años" />
+              <input formControlName="edad" type="number" class="form-control" placeholder="Años" />
             </div>
 
             <div class="col-md-4">
-              <label class="form-label fw-semibold">Peso (kg)</label>
-              <input type="number" class="form-control" />
+              <label class="form-label fw-semibold" >Peso (kg)</label>
+              <input type="number" class="form-control" formControlName="peso"/>
             </div>
 
             <div class="col-md-4">
               <label class="form-label fw-semibold">Fecha de Nacimiento</label>
-              <input type="date" class="form-control" />
+              <input type="date" class="form-control" formControlName="fechaNacimiento" />
             </div>
           </div>
 
           <div class="row mb-3">
             <div class="col-md-6">
               <label class="form-label fw-semibold">Color de Pelaje</label>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Ej: Marrón claro"
-              />
+              <input type="text" class="form-control" placeholder="Ej: Marrón claro" formControlName="colorPelaje"/>
             </div>
 
             <div class="col-md-6 d-flex align-items-end">
               <div class="form-check mt-3">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="esterilizadoCheck"
-                />
-                <label
-                  class="form-check-label fw-semibold"
-                  for="esterilizadoCheck"
-                >
+                <input class="form-check-input" type="checkbox" id="esterilizadoCheck" formControlName="esterilizado"/>
+                <label class="form-check-label fw-semibold" for="esterilizadoCheck" >
                   Esterilizado
                 </label>
               </div>
@@ -270,46 +237,47 @@
           <div class="row mb-3">
             <div class="col-md-6">
               <label class="form-label fw-semibold">Nombre</label>
-              <input type="text" class="form-control" />
+              <input type="text" class="form-control" formControlName="nombreDueno"/>
             </div>
             <div class="col-md-6">
               <label class="form-label fw-semibold">Apellido</label>
-              <input type="text" class="form-control" />
+              <input type="text" class="form-control" formControlName="apellidoDueno"/>
             </div>
           </div>
 
           <div class="row mb-3">
             <div class="col-md-6">
               <label class="form-label fw-semibold">Teléfono</label>
-              <input type="text" class="form-control" />
+              <input type="text" class="form-control" formControlName="telefonoDueno"/>
             </div>
             <div class="col-md-6">
               <label class="form-label fw-semibold">Email</label>
-              <input type="email" class="form-control" />
+              <input type="email" class="form-control" formControlName="emailDueno"/>
             </div>
           </div>
 
-          <div class="mb-3">
-            <label class="form-label fw-semibold">Dirección</label>
-            <input type="text" class="form-control" />
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Dirección</label>
+              <input type="text" class="form-control" formControlName="direccionDueno"/>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">DNI</label>
+              <input type="email" class="form-control" formControlName="documentoIdentidad"/>
+            </div>
           </div>
         </div>
 
         <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-secondary"
-            data-bs-dismiss="modal"
-          >
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
             Cancelar
           </button>
-
-          <button type="button" class="btn btn-success">Guardar Mascota</button>
+          <button type="button" class="btn btn-success"  data-bs-dismiss="modal" (click)="save()">Guardar Mascota</button>
         </div>
       </div>
     </div>
   </div>
-  
+
   <div class="background-decoration decoration-1"></div>
   <div class="background-decoration decoration-2"></div>
   <div class="background-decoration decoration-3"></div>

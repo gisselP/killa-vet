@@ -10,7 +10,7 @@ export interface Mascota {
   colorPelaje: string;
   fechaNacimiento: Date;
   dueno: Dueno; 
-  genero?: 'Macho' | 'Hembra';
+  sexo?: 'Macho' | 'Hembra';
   esterilizado?: boolean;
 }
 

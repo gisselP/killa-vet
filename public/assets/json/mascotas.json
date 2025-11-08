@@ -1,0 +1,128 @@
+[
+    {
+      "id": 1,
+      "nombre": "Max",
+      "especie": "Perro",
+      "raza": "Labrador",
+      "edad": 3,
+      "peso": 28.5,
+      "colorPelaje": "Dorado",
+      "fechaNacimiento": "2021-03-15",
+      "dueno": {
+        "id": 1,
+        "nombre": "Juan",
+        "apellido": "Pérez",
+        "telefono": "987123456",
+        "email": "juan.perez@email.com",
+        "direccion": "Av. Arequipa 1234, San Isidro",
+        "documentoIdentidad": "12345678"
+      },
+      "sexo": "Macho",
+      "esterilizado": true
+    },
+    {
+      "id": 2,
+      "nombre": "Luna",
+      "especie": "Gato",
+      "raza": "Persa",
+      "edad": 2,
+      "peso": 4.2,
+      "colorPelaje": "Blanco",
+      "fechaNacimiento": "2022-06-20",
+      "dueno": {
+        "id": 1,
+        "nombre": "Juan",
+        "apellido": "Pérez",
+        "telefono": "987123456",
+        "email": "juan.perez@email.com",
+        "direccion": "Av. Arequipa 1234, San Isidro",
+        "documentoIdentidad": "12345678"
+      },
+      "sexo": "Hembra",
+      "esterilizado": true
+    },
+    {
+      "id": 3,
+      "nombre": "Rocky",
+      "especie": "Perro",
+      "raza": "Pastor Alemán",
+      "edad": 5,
+      "peso": 35,
+      "colorPelaje": "Negro y Marrón",
+      "fechaNacimiento": "2019-01-10",
+      "dueno": {
+        "id": 2,
+        "nombre": "Ana",
+        "apellido": "Torres",
+        "telefono": "987123457",
+        "email": "ana.torres@email.com",
+        "direccion": "Jr. Las Flores 567, Miraflores",
+        "documentoIdentidad": "23456789"
+      },
+      "sexo": "Macho",
+      "esterilizado": false
+    },
+    {
+      "id": 4,
+      "nombre": "Michi",
+      "especie": "Gato",
+      "raza": "Siamés",
+      "edad": 1,
+      "peso": 3.8,
+      "colorPelaje": "Crema con puntas marrones",
+      "fechaNacimiento": "2023-05-12",
+      "dueno": {
+        "id": 2,
+        "nombre": "Ana",
+        "apellido": "Torres",
+        "telefono": "987123457",
+        "email": "ana.torres@email.com",
+        "direccion": "Jr. Las Flores 567, Miraflores",
+        "documentoIdentidad": "23456789"
+      },
+      "sexo": "Macho",
+      "esterilizado": false
+    },
+    {
+      "id": 5,
+      "nombre": "Bella",
+      "especie": "Perro",
+      "raza": "Golden Retriever",
+      "edad": 4,
+      "peso": 30.2,
+      "colorPelaje": "Dorado claro",
+      "fechaNacimiento": "2020-08-25",
+      "dueno": {
+        "id": 3,
+        "nombre": "Pedro",
+        "apellido": "Ramírez",
+        "telefono": "987123458",
+        "email": "pedro.ramirez@email.com",
+        "direccion": "Calle Los Olivos 890, Surco",
+        "documentoIdentidad": "34567890"
+      },
+      "sexo": "Hembra",
+      "esterilizado": true
+    },
+    {
+      "id": 6,
+      "nombre": "Toby",
+      "especie": "Perro",
+      "raza": "Beagle",
+      "edad": 2,
+      "peso": 12.5,
+      "colorPelaje": "Tricolor",
+      "fechaNacimiento": "2022-02-14",
+      "dueno": {
+        "id": 4,
+        "nombre": "Lucía",
+        "apellido": "Mendoza",
+        "telefono": "987123459",
+        "email": "lucia.mendoza@email.com",
+        "direccion": "Av. Salaverry 345, Jesús María",
+        "documentoIdentidad": "45678901"
+      },
+      "sexo": "Macho",
+      "esterilizado": false
+    }
+  ]
