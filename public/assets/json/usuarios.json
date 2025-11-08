@@ -1,0 +1,23 @@
+[
+  {
+    "is": 1,
+    "nombre": "Carlos",
+    "apellido": "García",
+    "contrasena": "vet1",
+    "email": "carlos.garcia@killavet.com"
+  },
+  {
+    "id": 2,
+    "nombre": "María",
+    "apellido": "Rodríguez",
+    "email": "maria.rodriguez@killavet.com",
+    "contrasena": "vet2"
+  },
+  {
+    "id": 3,
+    "nombre": "Luis",
+    "apellido": "Fernández",
+    "email": "luis.fernandez@killavet.com",
+    "contrasena": "vet3"
+  }
+]
