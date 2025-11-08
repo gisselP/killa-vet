@@ -5,7 +5,8 @@ import { NgModule } from '@angular/core';
 import { LoginComponent } from './shared/pages/login/login.component';
 import { HistorialCitasComponent } from './features/admin/pages/historial-citas/historial-citas.component';
 import { GestionMascotaComponent } from './features/admin/pages/gestion-mascota/gestion-mascota.component';
-import { DashboardComponent } from './features/admin/pages/dashboard/.dashboard.component';
+import { DashboardComponent } from './features/admin/pages/dashboard/dashboard.component';
+import { authGuard } from './core/guards/guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -21,18 +22,22 @@ export const routes: Routes = [
     path: 'login',
     component: LoginComponent,
   },
-  { 
-  path: 'veterinario/dashboard', 
-  component: DashboardComponent 
-},
-{ 
-  path: 'veterinario/gestion-mascotas', 
-  component: GestionMascotaComponent 
-},
-{ 
-  path: 'veterinario/listar-citas', 
-  component: HistorialCitasComponent 
-},
+  {
+    path: 'veterinario/dashboard',
+    component: DashboardComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'veterinario/gestion-mascotas',
+    component: GestionMascotaComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'veterinario/listar-citas',
+    component: HistorialCitasComponent,
+    canActivate: [authGuard],
+  },
+
   {
     path: '**',
     redirectTo: '',

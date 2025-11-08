@@ -1,5 +1,10 @@
-<app-navbar *ngIf="hideLayout"></app-navbar>
+@if(!hideLayout){
+  <app-navbar></app-navbar>
+}
 <main class="main-content">
   <router-outlet></router-outlet>
 </main>
-<app-footer *ngIf="hideLayout"></app-footer>
+
+@if(!hideLayout){
+<app-footer></app-footer>
+}

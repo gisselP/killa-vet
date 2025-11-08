@@ -8,6 +8,7 @@
       </p>
     </div>
 
+    @if(!citaSuccessfull){
     <div class="row my-5">
       <section class="col-lg-7 mb-4">
         <div class="service-card p-4">
@@ -22,6 +23,7 @@
                 type="text"
                 class="form-control"
                 formControlName="nombre"
+                placeholder="Agregue nombre de su mascota"
               />
             </div>
 
@@ -99,7 +101,7 @@
                 class="btn btn-success"
                 data-bs-toggle="modal"
                 data-bs-target="#openModale"
-                [disabled]="!citaForm.invalid"
+                [disabled]="!citaForm.valid"
               >
                 Agendar Cita
               </button>
@@ -146,6 +148,23 @@
         </div>
       </section>
     </div>
+    } @if(citaSuccessfull){
+    <div class="row my-5">
+      <div class="service-card p-4 mb-3">
+        <h5 class="mb-3 fw-bold text-green">ℹ️ Cita creada con éxito</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2">
+            <i class="bi bi-patch-check-fill"></i> Fecha :
+            {{ citaForm.value.fecha | date : "dd/MM/yyyy" }}
+          </li>
+          <li class="mb-2">
+            <i class="bi bi-patch-check-fill"></i> Hora:
+            {{ citaForm.value.hora }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    }
   </div>
   <div
     class="modal fade"
@@ -169,21 +188,23 @@
         </div>
         <div class="modal-body">
           <div class="p-4 mb-3">
+            <h5 class="mb-3">📋 Resumen</h5>
+
             <div class="mb-2">
               <strong>Mascota:</strong>
-              <p class="mb-0"></p>
+              <p class="mb-0">{{ citaForm.value.nombre }}</p>
             </div>
             <div class="mb-2">
               <strong>Fecha:</strong>
-              <p class="mb-0"></p>
+              <p class="mb-0">{{ citaForm.value.fecha }}</p>
             </div>
             <div class="mb-2">
               <strong>Hora:</strong>
-              <p class="mb-0"></p>
+              <p class="mb-0">{{ citaForm.value.hora }}</p>
             </div>
             <div class="mb-0">
               <strong>Motivo:</strong>
-              <p class="mb-0"></p>
+              <p class="mb-0">{{ citaForm.value.motivo }}</p>
             </div>
           </div>
         </div>
@@ -195,7 +216,12 @@
           >
             Close
           </button>
-          <button type="button" class="btn btn-success" data-bs-dismiss="modal">
+          <button
+            type="button"
+            class="btn btn-success"
+            data-bs-dismiss="modal"
+            (click)="saveChanges()"
+          >
             Save changes
           </button>
         </div>

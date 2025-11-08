@@ -2,11 +2,14 @@
   <div class="row justify-content-center">
     <div class="col-lg-10">
       <nav
-        class="navbar navbar-expand-lg custom-navbar  py-2  px-5"
+        class="navbar navbar-expand-lg custom-navbar py-2 px-5"
         data-bs-theme="white"
       >
         <div class="container-xxl">
-          <a class="navbar-brand brand-name fw-bold mb-2 fs-5" href="#">
+          <a
+            class="navbar-brand brand-name fw-bold mb-2 fs-5"
+            (click)="navigate()"
+          >
             {{ mensaje | titlecase }}
           </a>
 
@@ -24,20 +27,48 @@
 
           <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
             <ul class="navbar-nav align-items-center gap-2">
-              <li *ngIf="login" class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/agendar-cita">Agendar Cita</a>
+              @if(!usuarioLogueado){
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/agendar-cita">Agendar Cita</a>
               </li>
-
-              <li *ngIf="login" class="nav-item">
-                <a class="nav-link"  href="#contacto" aria-disabled="true">Contacto</a>
+              <li class="nav-item">
+                <a class="nav-link" href="#contacto">Contacto</a>
               </li>
-
-              <li *ngIf="login" class="nav-item">
-                <a class="nav-link d-flex align-items-center gap-1" href="/login">
+              <li class="nav-item">
+                <a
+                  class="nav-link d-flex align-items-center gap-1"
+                  routerLink="/login"
+                >
                   <span>Iniciar Sesión</span>
                   <i class="bi bi-box-arrow-in-right"></i>
                 </a>
               </li>
+              } @else {
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/veterinario/dashboard"
+                  >Dashboard</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/veterinario/gestion-mascotas"
+                  >Gestión de mascotas</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/veterinario/listar-citas"
+                  >Historial</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link d-flex align-items-center gap-1"
+                  (click)="logout()"
+                >
+                  <span>Cerrar Sesión</span>
+                  <i class="bi bi-box-arrow-right"></i>
+                </a>
+              </li>
+              }
             </ul>
           </div>
         </div>

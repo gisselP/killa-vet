@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Mascota } from '../../interfaces/response/mascota.interface';
 import { Veterinario } from '../../interfaces/response/veterinario.interface';
-import { VETERINARIOS_MOCK } from '../../../../../backend/data/veterinarios.data';
 import { VeterinariosService } from '../../../../core/services/veterinarios.service';
 
 @Component({
@@ -17,6 +21,7 @@ export class AgendaCitasComponent implements OnInit {
   veterinarios: Veterinario[] = [];
   mascotaSeleccionada?: Mascota;
   fechaMinima: string | undefined;
+  citaSuccessfull: boolean = false;
 
   constructor(private veterinariosService: VeterinariosService) {
     this.citaForm = new FormGroup({
@@ -30,24 +35,28 @@ export class AgendaCitasComponent implements OnInit {
   }
 
   ngOnInit() {
+    const hoy = new Date();
+    this.fechaMinima = hoy.toISOString().split('T')[0];
     this.obtenerNombreVeterinario();
   }
 
   agendarCita(): void {
-    console.log('37')
     if (this.citaForm.invalid) {
       alert('Por favor completa todos los campos');
       return;
     }
-    console.log(this.citaForm.value);
-  }
-  onMascotaChange(event: Event): void {
-    console.log('JELOU');
   }
 
   obtenerNombreVeterinario(): void {
     this.veterinariosService.getVeterinarios().subscribe((response) => {
       this.veterinarios = response;
     });
+  }
+
+  saveChanges(): void {
+    const cita = this.citaForm.value;
+    localStorage.setItem('cita', JSON.stringify(cita));
+    this.citaSuccessfull = true;
+    console.log(this.citaForm.value);
   }
 }

@@ -1,4 +1,4 @@
-import { DashboardComponent } from './pages/dashboard/.dashboard.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HistorialCitasComponent } from './pages/historial-citas/historial-citas.component';
 import { GestionMascotaComponent } from './pages/gestion-mascota/gestion-mascota.component';
 
