@@ -31,7 +31,6 @@ body {
   }
 }
 
-
 .principal-title {
   font-weight: 800;
   color: v.$text-dark;
@@ -86,8 +85,18 @@ body {
       opacity: 0.3;
     }
   }
-}
 
+}
+  .no-hover {
+    pointer-events: none;
+  }
+
+  .no-lift {
+    &:hover {
+      transform: none !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+    }
+  }
 .image-container {
   position: relative;
   display: flex;
@@ -146,6 +155,50 @@ body {
   }
 }
 
+.background-gradient {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+      circle at top left,
+      v.$accent-color,
+      transparent 50%
+    ),
+    radial-gradient(circle at top right, #dee8f4, transparent 50%),
+    radial-gradient(
+      circle at bottom right,
+      rgba(202, 239, 233, 0.25),
+      transparent 70%
+    );
+  pointer-events: none;
+}
+.btn-cta {
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  background: linear-gradient(135deg, v.$primary-color, v.$secondary-color);
+  border: none;
+  color: white;
+  box-shadow: 0 10px 30px rgba(v.$primary-color, 0.3);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(v.$primary-color, 0.4);
+    background: linear-gradient(
+    135deg,
+    darken(v.$primary-color, 5%),
+    v.$secondary-color
+  );
+
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
 @keyframes pulse {
   0%,
   100% {
@@ -174,5 +227,26 @@ body {
 
   .image-container {
     margin-bottom: 50px;
+  } 
+  
+  .btn-cta {
+    padding: 12px 32px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .btn-cta {
+    padding: 10px 26px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-cta {
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+    font-size: 0.9rem;
   }
 }

@@ -1,4 +1,4 @@
-<div class="background-agenda"></div>
+<div class="background-gradient"></div>
 <section class="agenda-section">
   <div class="container pt-5">
     <div class="row align-items-center text-center">
@@ -18,11 +18,11 @@
           <form [formGroup]="citaForm" (ngSubmit)="agendarCita()">
             <div class="mb-3">
               <label class="form-label">🐾 Mascota</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  formControlName="nombre"
-                />
+              <input
+                type="text"
+                class="form-control"
+                formControlName="nombre"
+              />
             </div>
 
             <div class="row mb-3">
@@ -55,7 +55,7 @@
               <select class="form-select" formControlName="veterinarioId">
                 <option value="">Selecciona un veterinario</option>
                 @for(vet of veterinarios; track vet.id){
-                  <option [value]="vet.id">
+                <option [value]="vet.id">
                   Dr. {{ vet.nombre }} {{ vet.apellido }} -
                   {{ vet.especialidad }}
                 </option>
@@ -97,7 +97,8 @@
               <button
                 type="submit"
                 class="btn btn-success"
-                 data-bs-toggle="modal" data-bs-target="#openModale"
+                data-bs-toggle="modal"
+                data-bs-target="#openModale"
                 [disabled]="!citaForm.invalid"
               >
                 Agendar Cita
@@ -108,8 +109,7 @@
       </section>
 
       <section class="col-lg-5">
-
-        <div class="service-card p-4 mb-3">
+        <div class="service-card no-lift p-4 mb-3">
           <h5 class="mb-3 fw-bold text-green">ℹ️ Importante</h5>
           <ul class="list-unstyled">
             <li class="mb-2">
@@ -129,7 +129,7 @@
         </div>
 
         <!-- Card Horarios -->
-        <div class="service-card p-4">
+        <div class="service-card no-lift p-4">
           <h5 class="mb-3 fw-bold text-green">🕐 Horarios</h5>
           <div class="d-flex justify-content-between mb-2">
             <span>Lunes - Viernes</span>
@@ -146,45 +146,62 @@
         </div>
       </section>
     </div>
-  </div> 
- <div class="modal fade" id="openModale" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class=" modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Cita agendada</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-            
-        <div class=" p-4 mb-3" >
-          <h5 class="mb-3">📋 Resumen</h5>
-          <div class="mb-2">
-            <strong>Mascota:</strong>
-            <p class="mb-0"> 
-            </p>
-          </div>
-          <div class="mb-2">
-            <strong>Fecha:</strong>
-            <p class="mb-0">
-             </p>
-          </div>
-          <div class="mb-2" >
-            <strong>Hora:</strong>
-            <p class="mb-0"> </p>
-          </div>
-          <div class="mb-0">
-            <strong>Motivo:</strong>
-            <p class="mb-0"> </p>
+  </div>
+  <div
+    class="modal fade"
+    id="openModale"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">📋 Resumen</h1>
+
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            data-bs-target="#openModal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="p-4 mb-3">
+            <div class="mb-2">
+              <strong>Mascota:</strong>
+              <p class="mb-0"></p>
+            </div>
+            <div class="mb-2">
+              <strong>Fecha:</strong>
+              <p class="mb-0"></p>
+            </div>
+            <div class="mb-2">
+              <strong>Hora:</strong>
+              <p class="mb-0"></p>
+            </div>
+            <div class="mb-0">
+              <strong>Motivo:</strong>
+              <p class="mb-0"></p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  
-        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Save changes</button>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal">
+            Save changes
+          </button>
+        </div>
       </div>
     </div>
   </div>
-</div>
   <div class="background-decoration decoration-1"></div>
   <div class="background-decoration decoration-2"></div>
   <div class="background-decoration decoration-3"></div>
