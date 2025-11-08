@@ -96,24 +96,7 @@
 }
 
 // ===== Sección de estadísticas =====
-.stats-section {
-  padding: 40px 0;
-  margin-top: 90px;
-  animation: fadeInUp 1.2s ease-out;
-}
 
-.stat-card {
-  padding: 30px 20px;
-  background: v.$accent-color;
-  border-radius: 20px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  }
-}
 
 .stat-number {
   font-size: 2.5rem;

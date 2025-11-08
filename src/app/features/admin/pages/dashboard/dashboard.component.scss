@@ -1,0 +1,26 @@
+.glass-card {
+  background: rgba(255, 255, 255, 0.385);     // transparencia suave
+  backdrop-filter: blur(15px) saturate(180%); // efecto glass
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  padding: 25px;
+  transition: all 0.3s ease;
+
+  // Hover opcional
+  &:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 45px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.stat-icon{
+    height: 60px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+border-radius: 100%;
+}

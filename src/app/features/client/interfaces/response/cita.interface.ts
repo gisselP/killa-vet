@@ -1,5 +1,5 @@
 import { Veterinario } from './veterinario.interface';
-export type EstadoCita = 'PENDIENTE' | 'CONFIRMADA' | 'COMPLETADA' | 'CANCELADA';
+export type EstadoCita = 'PENDIENTE' | 'COMPLETADA' | 'CANCELADA';
 
 export interface Cita {
   id: number;
