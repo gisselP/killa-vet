@@ -18,7 +18,9 @@
     transform: translateY(-1px);
   }
 }
-
+.navbar-brand{
+  cursor: pointer;
+ }
 .nav-item {
   font-weight: 500;
   color: v.$text-dark;

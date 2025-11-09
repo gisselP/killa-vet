@@ -7,5 +7,8 @@ import { Component } from '@angular/core';
   standalone: false
 })
 export class HomeComponent {
+goToFacebook() {
+  window.open('https://www.facebook.com/killa.vet/', '_blank');
+}
 
 }

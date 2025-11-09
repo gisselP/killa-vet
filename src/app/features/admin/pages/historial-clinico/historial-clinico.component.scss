@@ -7,3 +7,7 @@ background: linear-gradient(135deg, #a8e6cf, #3dd59b);
 .green div > p{
     color: v.$text-dark;
 }
+.list-group .list-group-item:nth-child(n+4) {
+  display: none;
+}
+

@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "mascotaId": 1,
+    "veterinarioId": 1,
+    "fechaConsulta": "2025-10-15T10:30:00",
+    "diagnostico": "Otitis externa leve",
+    "tratamiento": "Limpieza del canal auditivo y aplicación de gotas antibióticas por 7 días",
+    "medicamentos": "Gotas óticas (Otiflox) 3 gotas cada 12h por 7 días. Antiinflamatorio (Meloxicam) 0.1 mg/kg cada 24h por 5 días",
+    "peso": 28.5,
+    "temperatura": 38.6,
+    "observaciones": "El paciente respondió bien durante la revisión. Se recomienda control en 10 días."
+  },
+  {
+    "id": 2,
+    "mascotaId": 1,
+    "veterinarioId": 3,
+    "fechaConsulta": "2025-09-20T15:45:00",
+    "diagnostico": "Dermatitis alérgica por pulgas",
+    "tratamiento": "Baño medicado semanal y aplicación de antiparasitario externo",
+    "medicamentos": "Antihistamínico (Loratadina) 2 mg/kg cada 24h por 5 días. Antipulgas (Frontline) una aplicación tópica",
+    "peso": 4.2,
+    "temperatura": 38.3,
+    "observaciones": "Se recomienda limpieza del entorno y repetir tratamiento antipulgas en 30 días."
+  },
+  {
+    "id": 3,
+    "mascotaId": 5,
+    "veterinarioId": 2,
+    "fechaConsulta": "2025-08-05T11:00:00",
+    "diagnostico": "Esterilización quirúrgica programada",
+    "tratamiento": "Procedimiento quirúrgico bajo anestesia general. Revisión postoperatoria en 7 días.",
+    "medicamentos": "Antibiótico (Amoxicilina) 500mg cada 12h por 7 días. Analgésico (Tramadol) 50mg cada 8h por 3 días",
+    "peso": 30.2,
+    "temperatura": 38.7,
+    "observaciones": "Cirugía exitosa. Herida limpia, sin signos de infección."
+  },
+  {
+    "id": 4,
+    "mascotaId": 6,
+    "veterinarioId": 1,
+    "fechaConsulta": "2025-07-10T09:15:00",
+    "diagnostico": "Gastroenteritis leve",
+    "tratamiento": "Dieta blanda y administración de antiemético",
+    "medicamentos": "Antiemético (Metoclopramida) 0.5 mg/kg cada 8h por 3 días. Suero oral (Electrolitos) 100 ml cada 8h",
+    "peso": 12.5,
+    "temperatura": 39.1,
+    "observaciones": "Se recomienda hidratación y observación de signos de recaída."
+  }
+]

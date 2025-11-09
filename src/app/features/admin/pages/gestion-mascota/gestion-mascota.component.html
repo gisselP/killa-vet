@@ -16,7 +16,7 @@
         <i class="bi bi-plus-circle me-2"></i>
         Registrar Nueva Mascota
       </button>
-    </div> 
+    </div>
       <div class="row mt-4">
         <!-- Lista de Mascotas -->
         <div class="col-md-7 mb-3 px-0">
@@ -122,6 +122,10 @@
             <h6 class="fw-bold text-green mb-2">Información General</h6>
             <ul class="list-unstyled info-list mb-4">
               <li>
+                👤
+                <strong>Nombre:</strong> {{ mascotaSeleccionada.nombre }}
+              </li>
+              <li>
                 ⚧️
                 <strong>Sexo:</strong> {{ mascotaSeleccionada.sexo }}
               </li>
@@ -186,7 +190,7 @@
           </div>
           }
         </div>
-      </div> 
+      </div>
     <!-- MODAL s -->
     <div
       class="modal fade"
