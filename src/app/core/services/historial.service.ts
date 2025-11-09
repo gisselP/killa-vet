@@ -40,10 +40,6 @@ export class HistorialService {
     return this.historial$;
   }
 
-  obtenerHistorialPorId(id: number): HistorialClinico | undefined {
-    return this.historialSubject.value.find((m) => m.id === id);
-  }
-
   agregarHistorial(historial: HistorialClinico): void {
     const historiales = this.historialSubject.value;
     const maxId = Math.max(0, ...historiales.map((m) => m.id));

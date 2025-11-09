@@ -9,6 +9,7 @@
           Consulta el historial médico completo de las mascotas 🐶😺🦜
         </p>
       </div>
+      @if(mascotaSeleccionada) {
       <button
         class="btn btn-primary btn-cta"
         data-bs-toggle="modal"
@@ -17,6 +18,7 @@
         <i class="bi bi-plus-circle me-2"></i>
         Nuevo Registro
       </button>
+      }
     </div>
     <div class="row mt-4">
       <div class="col-md-3">
@@ -125,7 +127,20 @@
                 </div>
               </div>
             </div>
-            } 
+            } @if(historialFiltrada.length ==0) {
+            <h5 class="mb-4">
+              <i class="bi bi-info-circle me-2"></i>Vista Rápida
+            </h5>
+            <div class="text-center py-5">
+              <i
+                class="bi bi-arrow-left-circle text-muted"
+                style="font-size: 3rem"
+              ></i>
+              <p class="text-muted mt-3">
+                Selecciona una mascota para ver sus detalles
+              </p>
+            </div>
+            }
           </div>
         </div>
       </div>
@@ -154,17 +169,18 @@
 
         <!-- Body del Modal -->
         <div class="modal-body">
-          <form>
+          <form [formGroup]="agregarHistorialForm">
             <!-- Info de la mascota (solo lectura) -->
-            <div class="alert alert-light border">
-              <div class="row">
-                <div class="col-md-6">
-                  <strong>🐕 Mascota:</strong> Max (Golden Retriever)
-                </div>
-                <div class="col-md-6">
-                  <strong>👤 Dueño:</strong> Juan Pérez
-                </div>
-              </div>
+            <div
+              class="alert alert-light border d-flex justify-content-between"
+            >
+              <p class="mb-0">
+                <strong>Mascota:</strong> {{ mascotaSeleccionada?.nombre }}
+              </p>
+              <p class="mb-0">
+                <strong>👤 Dueño:</strong>
+                {{ mascotaSeleccionada?.dueno?.nombre }}
+              </p>
             </div>
 
             <!-- Veterinario -->
@@ -172,7 +188,12 @@
               <label for="veterinario" class="form-label"
                 >👨‍⚕️ Veterinario *</label
               >
-              <select class="form-select" id="veterinario" required>
+              <select
+                class="form-select"
+                id="veterinario"
+                required
+                formControlName="veterinarioId"
+              >
                 <option value="">Selecciona un veterinario</option>
                 <option value="1">Dra. María García - Medicina General</option>
                 <option value="2">Dr. Carlos Rodríguez - Cirugía</option>
@@ -189,6 +210,7 @@
                 type="text"
                 class="form-control"
                 id="diagnostico"
+                formControlName="diagnostico"
                 required
               />
             </div>
@@ -203,6 +225,7 @@
                 id="tratamiento"
                 rows="2"
                 required
+                formControlName="tratamiento"
               ></textarea>
             </div>
 
@@ -215,6 +238,7 @@
                 class="form-control"
                 id="medicamentos"
                 rows="2"
+                formControlName="medicamentos"
                 placeholder="Ej: Antibiótico (Amoxicilina) 500mg cada 12h por 7 días (uno por línea)"
               ></textarea>
               <small class="text-muted"
@@ -232,6 +256,7 @@
                   class="form-control"
                   id="peso"
                   required
+                  formControlName="peso"
                 />
               </div>
               <div class="col-md-6">
@@ -243,6 +268,7 @@
                   step="0.1"
                   class="form-control"
                   id="temperatura"
+                  formControlName="temperatura"
                 />
                 <small class="text-muted">Opcional</small>
               </div>
@@ -256,6 +282,7 @@
                 class="form-control"
                 id="observaciones"
                 rows="3"
+                formControlName="observaciones"
                 placeholder="Cualquier nota adicional sobre la atención..."
               ></textarea>
               <small class="text-muted">Opcional</small>
@@ -272,7 +299,12 @@
           >
             Cancelar
           </button>
-          <button type="button" class="btn btn-success">
+          <button
+            type="button"
+            class="btn btn-success"
+            data-bs-dismiss="modal"
+            (click)="save()"
+          >
             💾 Guardar Registro
           </button>
         </div>
